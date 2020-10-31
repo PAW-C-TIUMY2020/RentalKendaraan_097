@@ -14,23 +14,23 @@
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <input type="hidden" asp-for="IdPeminjaman" />
             <div class="form-group">
-                <label asp-for="TglPeminjaman" class="control-label"></label>
-                <input asp-for="TglPeminjaman" class="form-control" />
-                <span asp-validation-for="TglPeminjaman" class="text-danger"></span>
+                <label asp-for="TglPeminjamaan" class="control-label"></label>
+                <input asp-for="TglPeminjamaan" class="form-control" />
+                <span asp-validation-for="TglPeminjamaan" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="IdKendaraan" class="control-label"></label>
-                <select asp-for="IdKendaraan" class="form-control" asp-items="ViewBag.IdKendaraan"></select>
+                <input asp-for="IdKendaraan" class="form-control" />
                 <span asp-validation-for="IdKendaraan" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="IdCustomer" class="control-label"></label>
-                <select asp-for="IdCustomer" class="form-control" asp-items="ViewBag.IdCustomer"></select>
-                <span asp-validation-for="IdCustomer" class="text-danger"></span>
+                <label asp-for="IdCostumer" class="control-label"></label>
+                <select asp-for="IdCostumer" class="form-control" asp-items="ViewBag.IdCostumer"></select>
+                <span asp-validation-for="IdCostumer" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="IdJaminan" class="control-label"></label>
-                <select asp-for="IdJaminan" class="form-control" asp-items="ViewBag.IdJaminan"></select>
+                <input asp-for="IdJaminan" class="form-control" />
                 <span asp-validation-for="IdJaminan" class="text-danger"></span>
             </div>
             <div class="form-group">
