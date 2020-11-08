@@ -11,9 +11,9 @@ namespace RentalKendaraan_097.Controllers
 {
     public class PeminjamenController : Controller
     {
-        private readonly rental_kendaraanContext _context;
+        private readonly Rental_KendaraanContext _context;
 
-        public PeminjamenController(rental_kendaraanContext context)
+        public PeminjamenController(Rental_KendaraanContext context)
         {
             _context = context;
         }
@@ -21,8 +21,8 @@ namespace RentalKendaraan_097.Controllers
         // GET: Peminjamen
         public async Task<IActionResult> Index()
         {
-            var rental_kendaraanContext = _context.Peminjaman.Include(p => p.IdCustomerNavigation).Include(p => p.IdJaminanNavigation).Include(p => p.IdKendaraanNavigation);
-            return View(await rental_kendaraanContext.ToListAsync());
+            var Rental_KendaraanContext = _context.Peminjaman.Include(p => p.IdCustomerNavigation).Include(p => p.IdJaminanNavigation).Include(p => p.IdKendaraanNavigation);
+            return View(await Rental_KendaraanContext.ToListAsync());
         }
 
         // GET: Peminjamen/Details/5

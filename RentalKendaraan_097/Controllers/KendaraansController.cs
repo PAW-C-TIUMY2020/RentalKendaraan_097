@@ -11,9 +11,9 @@ namespace RentalKendaraan_097.Controllers
 {
     public class KendaraansController : Controller
     {
-        private readonly rental_kendaraanContext _context;
+        private readonly Rental_KendaraanContext _context;
 
-        public KendaraansController(rental_kendaraanContext context)
+        public KendaraansController(Rental_KendaraanContext context)
         {
             _context = context;
         }
@@ -21,8 +21,8 @@ namespace RentalKendaraan_097.Controllers
         // GET: Kendaraans
         public async Task<IActionResult> Index()
         {
-            var rental_kendaraanContext = _context.Kendaraan.Include(k => k.IdJenisKendaraanNavigation);
-            return View(await rental_kendaraanContext.ToListAsync());
+            var Rental_KendaraanContext = _context.Kendaraan.Include(k => k.IdJenisKendaraanNavigation);
+            return View(await Rental_KendaraanContext.ToListAsync());
         }
 
         // GET: Kendaraans/Details/5

@@ -11,9 +11,9 @@ namespace RentalKendaraan_097.Controllers
 {
     public class PengembaliansController : Controller
     {
-        private readonly rental_kendaraanContext _context;
+        private readonly Rental_KendaraanContext _context;
 
-        public PengembaliansController(rental_kendaraanContext context)
+        public PengembaliansController(Rental_KendaraanContext context)
         {
             _context = context;
         }
@@ -21,8 +21,8 @@ namespace RentalKendaraan_097.Controllers
         // GET: Pengembalians
         public async Task<IActionResult> Index()
         {
-            var rental_kendaraanContext = _context.Pengembalian.Include(p => p.IdKondisiNavigation).Include(p => p.IdPeminjamanNavigation);
-            return View(await rental_kendaraanContext.ToListAsync());
+            var rental_KendaraanContext = _context.Pengembalian.Include(p => p.IdKondisiNavigation).Include(p => p.IdPeminjamanNavigation);
+            return View(await rental_KendaraanContext.ToListAsync());
         }
 
         // GET: Pengembalians/Details/5
@@ -36,7 +36,7 @@ namespace RentalKendaraan_097.Controllers
             var pengembalian = await _context.Pengembalian
                 .Include(p => p.IdKondisiNavigation)
                 .Include(p => p.IdPeminjamanNavigation)
-                .FirstOrDefaultAsync(m => m.IdPengembalian == id);
+                .FirstOrDefaultAsync(m => m.IdPengambilan == id);
             if (pengembalian == null)
             {
                 return NotFound();
@@ -58,7 +58,7 @@ namespace RentalKendaraan_097.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("IdPengembalian,TglPengembalian,IdPeminjaman,IdKondisi,Denda")] Pengembalian pengembalian)
+        public async Task<IActionResult> Create([Bind("IdPengambilan,TglPengembalian,IdPeminjaman,IdKondisi,Denda")] Pengembalian pengembalian)
         {
             if (ModelState.IsValid)
             {
@@ -94,9 +94,9 @@ namespace RentalKendaraan_097.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("IdPengembalian,TglPengembalian,IdPeminjaman,IdKondisi,Denda")] Pengembalian pengembalian)
+        public async Task<IActionResult> Edit(int id, [Bind("IdPengambilan,TglPengembalian,IdPeminjaman,IdKondisi,Denda")] Pengembalian pengembalian)
         {
-            if (id != pengembalian.IdPengembalian)
+            if (id != pengembalian.IdPengambilan)
             {
                 return NotFound();
             }
@@ -110,7 +110,7 @@ namespace RentalKendaraan_097.Controllers
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!PengembalianExists(pengembalian.IdPengembalian))
+                    if (!PengembalianExists(pengembalian.IdPengambilan))
                     {
                         return NotFound();
                     }
@@ -137,7 +137,7 @@ namespace RentalKendaraan_097.Controllers
             var pengembalian = await _context.Pengembalian
                 .Include(p => p.IdKondisiNavigation)
                 .Include(p => p.IdPeminjamanNavigation)
-                .FirstOrDefaultAsync(m => m.IdPengembalian == id);
+                .FirstOrDefaultAsync(m => m.IdPengambilan == id);
             if (pengembalian == null)
             {
                 return NotFound();
@@ -159,7 +159,7 @@ namespace RentalKendaraan_097.Controllers
 
         private bool PengembalianExists(int id)
         {
-            return _context.Pengembalian.Any(e => e.IdPengembalian == id);
+            return _context.Pengembalian.Any(e => e.IdPengambilan == id);
         }
     }
 }
